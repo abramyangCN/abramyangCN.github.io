@@ -1,6 +1,5 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { rhythm } from "../utils/typography"
 
 import PrimarySearchAppBar from "./PrimarySearchAppBar"
 
@@ -93,16 +92,7 @@ const Layout = ({ location, title, children }) => {
         logo={data.logo.childImageSharp.fixed}
         siteName={title}
       />
-      <main
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        {children}
-      </main>
+      <main>{children}</main>
       <footer
         style={{
           textAlign: `center`,
