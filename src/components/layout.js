@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import PrimarySearchAppBar from "./PrimarySearchAppBar"
+import Container from "@material-ui/core/Container"
 
 const Layout = ({ location, title, children }) => {
   // const rootPath = `${__PATH_PREFIX__}/`
@@ -12,7 +13,7 @@ const Layout = ({ location, title, children }) => {
     query LayoutQuery {
       logo: file(absolutePath: { regex: "/logo.png/" }) {
         childImageSharp {
-          fixed(width: 50) {
+          fixed(width: 60) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -92,7 +93,10 @@ const Layout = ({ location, title, children }) => {
         logo={data.logo.childImageSharp.fixed}
         siteName={title}
       />
-      <main>{children}</main>
+      <Container maxWidth="sm">
+        <main>{children}</main>
+      </Container>
+
       <footer
         style={{
           textAlign: `center`,
